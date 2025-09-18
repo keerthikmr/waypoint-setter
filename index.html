@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Waypoints</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Set Waypoints</h1>
+        <div class="controls">
+            <div class="status">
+                <span id="status">Click on the map to add waypoints. Press ESC to finish.</span>
+            </div>
+            <button id="exportBtn" class="export-btn" disabled>Export Waypoints</button>
+        </div>
+        <div id="map"></div>
+        
+        <div id="altitudeModal" class="modal">
+            <div class="modal-content">
+                <h3>Set Altitude for Waypoint</h3>
+                <p>Coordinates: <span id="coordsDisplay"></span></p>
+                <label for="altitudeInput">Altitude (m):</label>
+                <input type="number" id="altitudeInput" placeholder="Enter altitude in meters" step="0.1">
+                <div class="modal-buttons">
+                    <button id="confirmAltitude">Confirm</button>
+                    <button id="cancelAltitude">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClarUZCjI1wtHSDvxf-YCHbwSTCgmU9to&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
