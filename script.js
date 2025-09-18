@@ -86,30 +86,29 @@ function addWaypoint(lat, lng, altitude) {
     altitude: altitude,
   };
 
-  waypoints.push(waypoint);
-
   const marker = new google.maps.Marker({
     position: { lat, lng },
     map: map,
     title: `Waypoint ${waypoint.id}\nAlt: ${altitude}m`,
-    label: waypoint.id.toString(),
     icon: {
       url:
         "data:image/svg+xml;charset=UTF-8," +
         encodeURIComponent(`
-                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="16" cy="16" r="12" fill="#FF4444" stroke="#FFFFFF" stroke-width="2"/>
-                    <text x="16" y="20" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">${waypoint.id}</text>
-                </svg>
-            `),
-      scaledSize: new google.maps.Size(32, 32),
-      anchor: new google.maps.Point(16, 16),
+          <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="14" fill="#2196F3"/>
+            <circle cx="14" cy="14" r="12" fill="#1976D2"/>
+            <text x="14" y="18" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">${waypoint.id}</text>
+          </svg>
+        `),
+      scaledSize: new google.maps.Size(28, 28),
+      anchor: new google.maps.Point(14, 14),
     },
   });
 
-  markers.push(marker);
-  updateWaypointPath();
+  waypoint.marker = marker;
+  waypoints.push(waypoint);
 
+  updateWaypointPath();
   updateStatus();
 }
 
